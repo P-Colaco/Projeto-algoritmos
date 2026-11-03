@@ -38,6 +38,18 @@ struct Maquina {
 struct Maquina listaMaquinas[50];
 int totalMaquinas = 0;
 
+// 3. Perspectiva do Gabriel: Pacotes de Fichas vendidos no Caixa
+struct PacoteFichas {
+    int idPacote;
+    char descricao[40];    // ex: "Pacote Turbo 10 + 2 de bonus"
+    int quantidadeFichas;  // fichas entregues ao jogador
+    float preco;           // valor do pacote em R$
+    int disponivel;        // 1 = A venda, 0 = Fora de linha
+};
+
+struct PacoteFichas listaPacotes[50];
+int totalPacotes = 0;
+
 // ============================================================================
 // PARTE 2: FUNCOES DE INTERFACE E MODULOS DE CADA INTEGRANTE
 // ============================================================================
@@ -52,7 +64,7 @@ void exibirCabecalho() {
 
 // ----------------------------------------------------------------------------
 // MODULO 1: PERSPECTIVA DE JOGADORES
-// Autor: Pedro 
+// Autor: Pedro (RGM: 48163457)
 // ----------------------------------------------------------------------------
 void moduloJogadores() {
     int opcaoJogador;
@@ -91,7 +103,7 @@ void moduloJogadores() {
 
 // ----------------------------------------------------------------------------
 // MODULO 2: PERSPECTIVA DE MAQUINAS DE ARCADE
-// Autor: Nicolas 
+// Autor: Nicolas (RGM: 48192295)
 // ----------------------------------------------------------------------------
 void moduloMaquinas() {
     int opcaoMaquina;
@@ -127,6 +139,44 @@ void moduloMaquinas() {
     } while (opcaoMaquina != 0);
 }
 
+// ----------------------------------------------------------------------------
+// MODULO 3: PERSPECTIVA DE PACOTES DE FICHAS (CAIXA)
+// Autor: Gabriel (RGM: 48144509)
+// ----------------------------------------------------------------------------
+void moduloPacotesFichas() {
+    int opcaoPacote;
+    do {
+        printf("\n--- [MODULO 3: PACOTES DE FICHAS NO CAIXA (Gabriel)] ---\n");
+        printf("1. Cadastrar Novo Pacote de Fichas\n");
+        printf("2. Listar Tabela de Precos / Buscar Pacote\n");
+        printf("3. Alterar Preco ou Quantidade de Fichas do Pacote\n");
+        printf("4. Retirar Pacote de Venda\n");
+        printf("0. Voltar ao Menu Principal\n");
+        printf("Escolha uma acao: ");
+        scanf("%d", &opcaoPacote);
+
+        switch (opcaoPacote) {
+            case 1:
+                printf("\n[Em construcao] Cadastrando Pacote (ID, Descricao, Qtd. de fichas, Preco)...\n");
+                break;
+            case 2:
+                printf("\n[Em construcao] Exibindo tabela de precos das fichas...\n");
+                break;
+            case 3:
+                printf("\n[Em construcao] Editando preco ou fichas de um pacote...\n");
+                break;
+            case 4:
+                printf("\n[Em construcao] Tirando pacote promocional de linha...\n");
+                break;
+            case 0:
+                printf("\nRetornando ao menu principal...\n");
+                break;
+            default:
+                printf("\n[ERRO] Opcao invalida no Modulo de Pacotes de Fichas!\n");
+        }
+    } while (opcaoPacote != 0);
+}
+
 // ============================================================================
 // PARTE 3: FUNCAO PRINCIPAL (MAIN) - DESPACHANTE DE MENUS
 // ============================================================================
@@ -138,6 +188,7 @@ int main() {
         printf("SELECIONE A PERSPECTIVA DO SISTEMA:\n");
         printf("1. Modulo de Jogadores (Pedro)\n");
         printf("2. Modulo de Maquinas de Arcade (Nicolas)\n");
+        printf("3. Modulo de Pacotes de Fichas (Gabriel)\n");
         printf("0. Encerrar o Sistema\n");
         printf("------------------------------------------------------\n");
         printf("Digite a opcao desejada: ");
@@ -150,11 +201,14 @@ int main() {
             case 2:
                 moduloMaquinas();
                 break;
+            case 3:
+                moduloPacotesFichas();
+                break;
             case 0:
                 printf("\nGAME OVER! Encerrando o Mega Arcade 90... Ate a proxima ficha!\n");
                 break;
             default:
-                printf("\n[ALERTA] Opcao invalida! Digite um numero de 0 a 2.\n");
+                printf("\n[ALERTA] Opcao invalida! Digite um numero de 0 a 3.\n");
         }
     } while (opcaoPrincipal != 0);
 
