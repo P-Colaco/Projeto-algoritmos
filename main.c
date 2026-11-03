@@ -25,6 +25,19 @@ struct Jogador {
 struct Jogador listaJogadores[50];
 int totalJogadores = 0;
 
+// 2. Perspectiva do Nicolas: Maquinas de Arcade (Gabinetes)
+struct Maquina {
+    int idMaquina;
+    char nomeJogo[40];     // ex: "Street Fighter II", "Metal Slug"
+    char fabricante[30];   // ex: "Capcom", "SNK", "Namco"
+    int anoLancamento;
+    int fichasPorPartida;  // quantas fichas a maquina consome por partida
+    int funcionando;       // 1 = Funcionando, 0 = Em manutencao
+};
+
+struct Maquina listaMaquinas[50];
+int totalMaquinas = 0;
+
 // ============================================================================
 // PARTE 2: FUNCOES DE INTERFACE E MODULOS DE CADA INTEGRANTE
 // ============================================================================
@@ -39,7 +52,7 @@ void exibirCabecalho() {
 
 // ----------------------------------------------------------------------------
 // MODULO 1: PERSPECTIVA DE JOGADORES
-// Autor: Pedro (RGM: _______)
+// Autor: Pedro 
 // ----------------------------------------------------------------------------
 void moduloJogadores() {
     int opcaoJogador;
@@ -76,6 +89,44 @@ void moduloJogadores() {
     } while (opcaoJogador != 0);
 }
 
+// ----------------------------------------------------------------------------
+// MODULO 2: PERSPECTIVA DE MAQUINAS DE ARCADE
+// Autor: Nicolas 
+// ----------------------------------------------------------------------------
+void moduloMaquinas() {
+    int opcaoMaquina;
+    do {
+        printf("\n--- [MODULO 2: MAQUINAS DE ARCADE (Nicolas)] ---\n");
+        printf("1. Cadastrar Nova Maquina / Jogo\n");
+        printf("2. Listar Maquinas / Buscar Jogo\n");
+        printf("3. Alterar Fichas por Partida ou Status de Manutencao\n");
+        printf("4. Remover Maquina do Salao\n");
+        printf("0. Voltar ao Menu Principal\n");
+        printf("Escolha uma acao: ");
+        scanf("%d", &opcaoMaquina);
+
+        switch (opcaoMaquina) {
+            case 1:
+                printf("\n[Em construcao] Cadastrando Maquina (ID, Jogo, Fabricante, Ano, Fichas por partida)...\n");
+                break;
+            case 2:
+                printf("\n[Em construcao] Listando todas as maquinas do salao...\n");
+                break;
+            case 3:
+                printf("\n[Em construcao] Atualizando fichas por partida ou colocando em manutencao...\n");
+                break;
+            case 4:
+                printf("\n[Em construcao] Retirando maquina quebrada do salao...\n");
+                break;
+            case 0:
+                printf("\nRetornando ao menu principal...\n");
+                break;
+            default:
+                printf("\n[ERRO] Opcao invalida no Modulo de Maquinas!\n");
+        }
+    } while (opcaoMaquina != 0);
+}
+
 // ============================================================================
 // PARTE 3: FUNCAO PRINCIPAL (MAIN) - DESPACHANTE DE MENUS
 // ============================================================================
@@ -86,6 +137,7 @@ int main() {
         exibirCabecalho();
         printf("SELECIONE A PERSPECTIVA DO SISTEMA:\n");
         printf("1. Modulo de Jogadores (Pedro)\n");
+        printf("2. Modulo de Maquinas de Arcade (Nicolas)\n");
         printf("0. Encerrar o Sistema\n");
         printf("------------------------------------------------------\n");
         printf("Digite a opcao desejada: ");
@@ -95,11 +147,14 @@ int main() {
             case 1:
                 moduloJogadores();
                 break;
+            case 2:
+                moduloMaquinas();
+                break;
             case 0:
                 printf("\nGAME OVER! Encerrando o Mega Arcade 90... Ate a proxima ficha!\n");
                 break;
             default:
-                printf("\n[ALERTA] Opcao invalida! Digite um numero de 0 a 1.\n");
+                printf("\n[ALERTA] Opcao invalida! Digite um numero de 0 a 2.\n");
         }
     } while (opcaoPrincipal != 0);
 
