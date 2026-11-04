@@ -50,6 +50,19 @@ struct PacoteFichas {
 struct PacoteFichas listaPacotes[50];
 int totalPacotes = 0;
 
+// 4. Perspectiva do Matias: Partidas Jogadas e High Scores
+struct Partida {
+    int idPartida;
+    int idJogadorPartida;  // liga com struct Jogador
+    int idMaquinaPartida;  // liga com struct Maquina
+    int pontuacao;         // pontos feitos na partida (base do High Score)
+    int fichasUsadas;
+    char data[11];         // formato DD/MM/AAAA + '\0'
+};
+
+struct Partida historicoPartidas[50];
+int totalPartidas = 0;
+
 // ============================================================================
 // PARTE 2: FUNCOES DE INTERFACE E MODULOS DE CADA INTEGRANTE
 // ============================================================================
@@ -64,7 +77,7 @@ void exibirCabecalho() {
 
 // ----------------------------------------------------------------------------
 // MODULO 1: PERSPECTIVA DE JOGADORES
-// Autor: Pedro (RGM: 48163457)
+// Autor: Pedro (RGM: _______)
 // ----------------------------------------------------------------------------
 void moduloJogadores() {
     int opcaoJogador;
@@ -103,7 +116,7 @@ void moduloJogadores() {
 
 // ----------------------------------------------------------------------------
 // MODULO 2: PERSPECTIVA DE MAQUINAS DE ARCADE
-// Autor: Nicolas (RGM: 48192295)
+// Autor: Nicolas (RGM: _______)
 // ----------------------------------------------------------------------------
 void moduloMaquinas() {
     int opcaoMaquina;
@@ -141,7 +154,7 @@ void moduloMaquinas() {
 
 // ----------------------------------------------------------------------------
 // MODULO 3: PERSPECTIVA DE PACOTES DE FICHAS (CAIXA)
-// Autor: Gabriel (RGM: 48144509)
+// Autor: Gabriel (RGM: _______)
 // ----------------------------------------------------------------------------
 void moduloPacotesFichas() {
     int opcaoPacote;
@@ -177,6 +190,57 @@ void moduloPacotesFichas() {
     } while (opcaoPacote != 0);
 }
 
+// ----------------------------------------------------------------------------
+// MODULO 4: PERSPECTIVA DE PARTIDAS, HIGH SCORES E RELATORIOS ANALITICOS
+//           (CRUZAMENTO DE DADOS: JOGADOR + MAQUINA)
+// Autor: Matias (RGM: _______)
+// ----------------------------------------------------------------------------
+void moduloPartidasRelatorios() {
+    int opcaoPartida;
+    do {
+        printf("\n--- [MODULO 4: PARTIDAS E HIGH SCORES (Matias)] ---\n");
+        printf("1. Registrar Nova Partida (Cruza Jogador + Maquina)\n");
+        printf("2. Listar Historico de Partidas\n");
+        printf("3. Anular Partida (pontuacao invalida)\n");
+        printf("4. [RELATORIO] Ranking High Score de uma Maquina (Top 10)\n");
+        printf("5. [RELATORIO] Recordista Geral do Fliperama\n");
+        printf("6. [RELATORIO] Maquina Mais Jogada\n");
+        printf("7. [RELATORIO] Partidas de um Jogador Especifico\n");
+        printf("0. Voltar ao Menu Principal\n");
+        printf("Escolha uma acao: ");
+        scanf("%d", &opcaoPartida);
+
+        switch (opcaoPartida) {
+            case 1:
+                printf("\n[Em construcao] Lancamento de partida: ID Jogador + ID Maquina, desconta fichas e grava pontuacao...\n");
+                break;
+            case 2:
+                printf("\n[Em construcao] Exibindo todas as partidas registradas...\n");
+                break;
+            case 3:
+                printf("\n[Em construcao] Anulando partida por ID...\n");
+                break;
+            case 4:
+                printf("\n[Em construcao] Montando o placar das 10 maiores pontuacoes da maquina...\n");
+                break;
+            case 5:
+                printf("\n[Em construcao] Buscando a maior pontuacao de todas as maquinas...\n");
+                break;
+            case 6:
+                printf("\n[Em construcao] Contando partidas por maquina para achar a mais jogada...\n");
+                break;
+            case 7:
+                printf("\n[Em construcao] Filtrando partidas por ID de jogador...\n");
+                break;
+            case 0:
+                printf("\nRetornando ao menu principal...\n");
+                break;
+            default:
+                printf("\n[ERRO] Opcao invalida no Modulo de Partidas!\n");
+        }
+    } while (opcaoPartida != 0);
+}
+
 // ============================================================================
 // PARTE 3: FUNCAO PRINCIPAL (MAIN) - DESPACHANTE DE MENUS
 // ============================================================================
@@ -189,6 +253,7 @@ int main() {
         printf("1. Modulo de Jogadores (Pedro)\n");
         printf("2. Modulo de Maquinas de Arcade (Nicolas)\n");
         printf("3. Modulo de Pacotes de Fichas (Gabriel)\n");
+        printf("4. Modulo de Partidas e High Scores (Matias)\n");
         printf("0. Encerrar o Sistema\n");
         printf("------------------------------------------------------\n");
         printf("Digite a opcao desejada: ");
@@ -204,11 +269,14 @@ int main() {
             case 3:
                 moduloPacotesFichas();
                 break;
+            case 4:
+                moduloPartidasRelatorios();
+                break;
             case 0:
                 printf("\nGAME OVER! Encerrando o Mega Arcade 90... Ate a proxima ficha!\n");
                 break;
             default:
-                printf("\n[ALERTA] Opcao invalida! Digite um numero de 0 a 3.\n");
+                printf("\n[ALERTA] Opcao invalida! Digite um numero de 0 a 4.\n");
         }
     } while (opcaoPrincipal != 0);
 
