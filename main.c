@@ -77,7 +77,7 @@ void exibirCabecalho() {
 
 // ----------------------------------------------------------------------------
 // MODULO 1: PERSPECTIVA DE JOGADORES
-// Autor: Pedro (RGM: _______)
+// Autor: Pedro (RGM: 48163457)
 // ----------------------------------------------------------------------------
 void moduloJogadores() {
     int opcaoJogador;
@@ -116,7 +116,7 @@ void moduloJogadores() {
 
 // ----------------------------------------------------------------------------
 // MODULO 2: PERSPECTIVA DE MAQUINAS DE ARCADE
-// Autor: Nicolas (RGM: _______)
+// Autor: Nicolas (RGM: 48192295)
 // ----------------------------------------------------------------------------
 void moduloMaquinas() {
     int opcaoMaquina;
@@ -154,7 +154,7 @@ void moduloMaquinas() {
 
 // ----------------------------------------------------------------------------
 // MODULO 3: PERSPECTIVA DE PACOTES DE FICHAS (CAIXA)
-// Autor: Gabriel (RGM: _______)
+// Autor: Gabriel (RGM: 48144509)
 // ----------------------------------------------------------------------------
 void moduloPacotesFichas() {
     int opcaoPacote;
@@ -193,7 +193,7 @@ void moduloPacotesFichas() {
 // ----------------------------------------------------------------------------
 // MODULO 4: PERSPECTIVA DE PARTIDAS, HIGH SCORES E RELATORIOS ANALITICOS
 //           (CRUZAMENTO DE DADOS: JOGADOR + MAQUINA)
-// Autor: Matias (RGM: _______)
+// Autor: Matias (RGM: 47346787)
 // ----------------------------------------------------------------------------
 void moduloPartidasRelatorios() {
     int opcaoPartida;
