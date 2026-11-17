@@ -1,5 +1,5 @@
 // ============================================================================
-// Arquivo: util.h | Autor: Pedro (RGM: 48163457)
+// Arquivo: util.h | Autor: Pedro (RGM: 48163457_______)
 // Funcoes de apoio usadas por TODOS os modulos (tela e leitura do teclado).
 // ============================================================================
 #ifndef UTIL_H
